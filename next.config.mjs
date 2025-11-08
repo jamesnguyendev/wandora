@@ -8,13 +8,13 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/dashboard",
-        destination: "/dashboard/tour",
+        source: "/homes",
+        destination: "/homes/explore",
         permanent: false,
       },
       {
         source: "/",
-        destination: "/dashboard/tour",
+        destination: "/homes/explore",
         permanent: false,
       },
     ];

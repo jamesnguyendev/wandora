@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 
 import { getTours } from "@/actions";
 import DebouncedInput from "@/components/custom/debounce-input";
-import TableSkeleton from "@/components/custom/table-skeleton";
+import TableSkeleton from "@/components/common/table-skeleton";
 import AddTour from "@/components/dashboard/tour/add-tour";
 import { DataTable } from "@/components/data-table/data-table";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";

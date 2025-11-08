@@ -2,7 +2,6 @@
 
 import { Moon, Sun } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { updateThemeMode } from "@/lib/theme-utils";
 import { setValueToCookie } from "@/server/server-actions";
 import { usePreferencesStore } from "@/stores/preferences/preferences-provider";
@@ -19,8 +18,15 @@ export function ThemeSwitcher() {
   };
 
   return (
-    <Button size="icon" onClick={handleValueChange}>
+    <div className="flex cursor-pointer gap-2" onClick={handleValueChange}>
       {themeMode === "dark" ? <Sun /> : <Moon />}
-    </Button>
+      {themeMode === "dark" ? "Light" : "Dark"}
+    </div>
   );
+
+  // return (
+  //   <Button size="icon" onClick={handleValueChange}>
+  //     {themeMode === "dark" ? <Sun /> : <Moon />}
+  //   </Button>
+  // );
 }

@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn, getInitials } from "@/lib/utils";
 
+import { ThemeSwitcher } from "./theme-switcher";
+
 export function AccountSwitcher({
   users,
 }: {
@@ -55,7 +57,10 @@ export function AccountSwitcher({
           </DropdownMenuItem>
         ))}
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/dashboard/default" })}>
+        <DropdownMenuItem>
+          <ThemeSwitcher />
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/" })}>
           <LogOut />
           Log out
         </DropdownMenuItem>
