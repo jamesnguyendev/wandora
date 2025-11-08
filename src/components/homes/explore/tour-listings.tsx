@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getTours } from "@/actions";
+import ListSkeleton from "@/components/common/lists-skeleton";
 import PaginateData from "@/components/common/paginate-data";
 import { Tour } from "@/types";
 
@@ -23,7 +24,7 @@ export const TourListings = () => {
     },
   });
 
-  if (isLoading) return "Loading...";
+  if (isLoading) return <ListSkeleton />;
 
   if (error) {
     throw new Error("An error has occurred: " + error.message);
