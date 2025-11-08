@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Tour } from "@/types";
 
 const TourItem = ({ data }: { data: Tour }) => {
-  const [imgSrc, setImgSrc] = useState(data.imageUrl || "/images/placeholder.png");
+  const [imgSrc, setImgSrc] = useState(data.imageUrl ?? "/images/placeholder.png");
 
   return (
     <div className="">
