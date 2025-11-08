@@ -1,5 +1,5 @@
-const page = () => {
-  return <div>lorem1000</div>;
-};
+import { TourListings } from "@/components/homes/index";
 
-export default page;
+export default async function page() {
+  return <TourListings />;
+}

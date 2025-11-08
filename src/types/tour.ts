@@ -1,4 +1,4 @@
-export interface tour {
+export interface Tour {
   id: string;
   title: string;
   description: string;
@@ -9,4 +9,4 @@ export interface tour {
   imageUrl?: string;
 }
 
-export type CreateTour = Omit<tour, "id">;
+export type CreateTour = Omit<Tour, "id">;

@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { getTours } from "@/actions";
 import DebouncedInput from "@/components/custom/debounce-input";
 import TableSkeleton from "@/components/common/table-skeleton";
-import AddTour from "@/components/dashboard/tour/add-tour";
+import AddTour from "@/components/homes/tour/add-tour";
 import { DataTable } from "@/components/data-table/data-table";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
 import { DataTableViewOptions } from "@/components/data-table/data-table-view-options";
