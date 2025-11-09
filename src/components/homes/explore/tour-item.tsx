@@ -27,12 +27,14 @@ const TourItem = ({ data }: { data: Tour }) => {
           />
         </Link>
       </div>
-      <div>
+      <div className="line-clamp-1 pt-0.5 font-medium text-black">
         <Link href={"/"} className="cursor-pointer">
           {data.title}
         </Link>
       </div>
-      <span>{data.priceBase}</span>
+      <div className="flex items-center justify-between text-sm">
+        <span>${data.priceBase} for 2 nights</span>
+      </div>
     </div>
   );
 };
