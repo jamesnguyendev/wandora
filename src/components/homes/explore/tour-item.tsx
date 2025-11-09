@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Tour } from "@/types";
 
-const TourItem = ({ data }: { data: Tour }) => {
+const TourItem = ({ data, search }: { data: Tour; search?: boolean }) => {
   const [imgSrc, setImgSrc] = useState(data.imageUrl ?? "/images/placeholder.png");
 
   return (
@@ -32,8 +32,11 @@ const TourItem = ({ data }: { data: Tour }) => {
           {data.title}
         </Link>
       </div>
-      <div className="flex items-center justify-between text-sm">
-        <span>${data.priceBase} for 2 nights</span>
+      <div className="flex flex-col pt-1 text-sm">
+        <div className="line-clamp-1">
+          <span className={`${search ? "font-bold underline" : ""} `}>${data.priceBase}</span> per night for {data.type}
+        </div>
+        {search ? <span className="line-clamp-2 pt-1 text-sm">{data.description}</span> : null}
       </div>
     </div>
   );

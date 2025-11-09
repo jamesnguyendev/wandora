@@ -27,10 +27,6 @@ export default function ErrorUI({ error, reset }: { error: Error; reset: () => v
           <Button className="w-full max-w-[200px] cursor-pointer" onClick={() => reset()}>
             Try again
           </Button>
-
-          <Link href="/" className="text-primary hover:text-primary/90 underline transition">
-            Home Page
-          </Link>
         </div>
       </body>
     </html>

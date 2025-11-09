@@ -7,10 +7,12 @@ import { Button } from "@/components/ui/button";
 export default function NotFound() {
   return (
     <div className="flex h-dvh flex-col items-center justify-center space-y-2 text-center">
-      <h1 className="text-2xl font-semibold">Không tìm thấy trang.</h1>
-      <p className="text-muted-foreground">Trang bạn đang tìm kiếm không tìm thấy.</p>
-      <Link replace href="/dashboard/default">
-        <Button variant="outline">Về trang chủ</Button>
+      <h1 className="text-2xl font-semibold">Page not found.</h1>
+      <p className="text-muted-foreground">Your page is not found.</p>
+      <Link replace href="/homes">
+        <Button variant="destructive" className="cursor-pointer">
+          Home
+        </Button>
       </Link>
     </div>
   );
