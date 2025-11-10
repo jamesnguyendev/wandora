@@ -2,8 +2,8 @@ export interface booking {
   id: string;
   userId: string;
   listingId: string;
-  startDate: string;
-  endDate: string;
+  startDate: string | Date;
+  endDate: string | Date;
   totalPrice: number;
   createdAt: string;
   updatedAt: string;

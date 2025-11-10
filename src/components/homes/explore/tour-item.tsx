@@ -11,7 +11,7 @@ const TourItem = ({ data, search }: { data: Tour; search?: boolean }) => {
   return (
     <div className="">
       <div className="overflow-hidden rounded-2xl">
-        <Link href={"/"}>
+        <Link href={`/homes/detail/${data.id}`}>
           <Image
             onError={() => setImgSrc("/images/placeholder.png")}
             src={imgSrc}
@@ -28,7 +28,7 @@ const TourItem = ({ data, search }: { data: Tour; search?: boolean }) => {
         </Link>
       </div>
       <div className="line-clamp-1 pt-0.5 font-medium text-black">
-        <Link href={"/"} className="cursor-pointer">
+        <Link href={`/homes/detail/${data.id}`} className="cursor-pointer">
           {data.title}
         </Link>
       </div>
