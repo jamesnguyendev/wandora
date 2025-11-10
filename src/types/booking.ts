@@ -1,3 +1,5 @@
+import { Tour } from "./tour";
+
 export interface booking {
   id: string;
   userId: string;
@@ -7,6 +9,7 @@ export interface booking {
   totalPrice: number;
   createdAt: string;
   updatedAt: string;
+  listing?: Tour;
 }
 
 export interface ResponseBooking {

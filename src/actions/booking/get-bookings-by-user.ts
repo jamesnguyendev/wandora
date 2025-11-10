@@ -4,11 +4,11 @@ import axios from "axios";
 
 import { getValidAccessToken } from "@/utils/auth/get-valid-access-token";
 
-export async function getBookings() {
+export async function getBookingsByUser() {
   const accessToken = await getValidAccessToken();
 
   try {
-    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/bookings/me`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
