@@ -1,5 +1,5 @@
 import SearchListings from "@/components/homes/search/search-listings";
-import SearchMapWrapper from "@/components/homes/search/search-map-wrapper";
+import SearchMapCustom from "@/components/homes/search/search-map-custom";
 
 import "leaflet/dist/leaflet.css";
 
@@ -16,7 +16,7 @@ export default async function Page({ searchParams }: PageProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3">
       <SearchListings keyword={encodeURIComponent(query)} search={true} />
-      <SearchMapWrapper />
+      <SearchMapCustom />
     </div>
   );
 }
