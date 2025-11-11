@@ -55,7 +55,7 @@ cd wandora
 npm install
 
 # 3️⃣ Set up environment variables
-cp .env.example .env
+cp  .env
 ```
 
 Then edit your `.env` file:
@@ -86,7 +86,7 @@ wandora/
 │
 ├── public/             # Static assets (images, icons, etc.)
 ├── styles/             # Tailwind styles and global CSS
-├── .env.example        # Example environment file
+├── .env                # Example environment file
 ├── package.json        # Dependencies and scripts
 ├── tsconfig.json       # TypeScript configuration
 ├── tailwind.config.ts  # Tailwind configuration
