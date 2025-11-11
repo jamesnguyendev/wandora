@@ -20,12 +20,13 @@ export const SearchListings = ({ keyword, search }: { keyword: string; search: b
   const setTours = useTourStore((state) => state.setTours);
 
   const { isLoading, error, data } = useQuery({
-    queryKey: ["tourSearchData", page],
+    queryKey: ["tourSearchData", keyword, page],
     queryFn: async () => {
       const data = await getSearchTours(page, limit, keyword);
 
       return data.data;
     },
+    enabled: !!keyword,
   });
 
   useEffect(() => {

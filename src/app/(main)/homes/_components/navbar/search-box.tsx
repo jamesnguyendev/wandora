@@ -2,6 +2,7 @@
 
 import { useState, useId } from "react";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -13,7 +14,6 @@ import { getSearchTours } from "@/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 interface Listing {
   id: string;
@@ -35,6 +35,7 @@ const SearchBox = () => {
     if (query.trim()) {
       router.push(`/homes/search?q=${encodeURIComponent(query)}`);
     }
+    setQuery("");
   };
 
   const { data, isLoading } = useQuery({
