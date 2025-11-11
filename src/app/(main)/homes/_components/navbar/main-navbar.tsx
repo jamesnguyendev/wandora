@@ -1,8 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import { users } from "@/data/users";
-
 import { AccountSwitcher } from "./account-switcher";
 import Category from "./category";
 import LogoApp from "./logo-app";
@@ -28,7 +26,7 @@ const MainNavbar = () => {
         <SearchBox />
         <div className="flex items-center gap-2">
           <Category />
-          <AccountSwitcher users={users} />
+          <AccountSwitcher />
         </div>
       </div>
     </header>
