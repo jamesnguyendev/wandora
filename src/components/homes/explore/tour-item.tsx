@@ -27,7 +27,7 @@ const TourItem = ({ data, search }: { data: Tour; search?: boolean }) => {
           />
         </Link>
       </div>
-      <div className="line-clamp-1 pt-0.5 font-medium text-black">
+      <div className="line-clamp-1 pt-0.5 font-medium text-black dark:text-white">
         <Link href={`/homes/detail/${data.id}`} className="cursor-pointer">
           {data.title}
         </Link>
