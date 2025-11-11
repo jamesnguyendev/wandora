@@ -16,7 +16,25 @@ const SearchMapCustom = () => {
   useEffect(() => {
     (async () => {
       const L = (await import("leaflet")).default;
-      const { MapContainer, TileLayer, Marker, Popup } = await import("react-leaflet");
+      const { MapContainer, TileLayer, Marker, Popup, useMap } = await import("react-leaflet");
+
+      const AutoCenter = ({ listings }: { listings: Tour[] }) => {
+        const map = useMap();
+
+        useEffect(() => {
+          if (!listings || listings.length === 0) return;
+
+          if (listings.length === 1) {
+            const { latitude, longitude } = listings[0];
+            map.setView([latitude, longitude], 13);
+          } else {
+            const bounds = L.latLngBounds(listings.map((l) => [l.latitude, l.longitude]));
+            map.fitBounds(bounds, { padding: [50, 50] });
+          }
+        }, [listings, map]);
+
+        return null;
+      };
 
       const customIcon = new L.Icon({
         iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
@@ -25,7 +43,7 @@ const SearchMapCustom = () => {
         popupAnchor: [0, -40],
       });
 
-      setLeafletComponents({ L, MapContainer, TileLayer, Marker, Popup, customIcon });
+      setLeafletComponents({ L, MapContainer, TileLayer, Marker, Popup, customIcon, AutoCenter });
 
       setTimeout(() => window.dispatchEvent(new Event("resize")), 300);
     })();
@@ -39,7 +57,7 @@ const SearchMapCustom = () => {
     );
   }
 
-  const { MapContainer, TileLayer, Marker, Popup, customIcon } = leafletComponents;
+  const { MapContainer, TileLayer, Marker, Popup, customIcon, AutoCenter } = leafletComponents;
 
   if (!(tours as any).listings) return null;
 
@@ -51,11 +69,13 @@ const SearchMapCustom = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
+        <AutoCenter listings={(tours as any).listings} />
+
         {(tours as any).listings.map((listing: Tour) => (
           <Marker key={listing.id} position={[listing.latitude, listing.longitude]} icon={customIcon}>
             <Popup>
               <div className="flex flex-col items-center">
-                <Link href={"/"}>
+                <Link href={`/homes/detail/${listing.id}`}>
                   <Image
                     src={listing.imageUrl || "/images/placeholder.png"}
                     alt={listing.title}
@@ -66,7 +86,7 @@ const SearchMapCustom = () => {
                   />
                 </Link>
                 <div className="mt-2 flex flex-col">
-                  <Link href={"/"} className="line-clamp-1 font-semibold hover:underline">
+                  <Link href={`/homes/detail/${listing.id}`} className="line-clamp-1 font-semibold hover:underline">
                     <span className="text-black">{listing.title}</span>
                   </Link>
                   <span className="font-momo line-clamp-1 text-xs">${listing.priceBase}</span>
