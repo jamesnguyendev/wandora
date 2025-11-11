@@ -2,9 +2,17 @@
 
 ## 📌 Introduction
 
-**Wandora** is a modern, full-featured administration panel built with **Next.js**, **TypeScript**, and **Tailwind CSS**.  
-It provides robust management tools, analytics, and a fully customizable interface designed for trading and portfolio monitoring.  
-With a focus on performance, scalability, and clean architecture, this dashboard is ideal for both startup and enterprise environments.
+**Wandora** is a modern, full-featured user platform built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
+It provides an elegant and interactive interface for exploring and booking listings directly from a map.
+Designed for performance, scalability, and usability, Wandora is ideal for startups and businesses that need a modern booking and exploration experience.
+
+This project focuses on the **user-facing web app**, featuring:
+
+- Interactive **map-based search and display**
+- Secure **authentication** (login/register) with **NextAuth.js**
+- **Listing management** (list, detail, and filters)
+- **Booking system**
+- Responsive and clean UI powered by **ShadCN / Radix UI**
 
 ---
 
@@ -14,23 +22,25 @@ With a focus on performance, scalability, and clean architecture, this dashboard
 
 - **Next.js 15** (App Router + Turbopack)
 - **React 19**
-- **TypeScript**
+- **TypeScript 5**
 - **Tailwind CSS 4**
 - **Radix UI / ShadCN UI**
-- **Zustand Management**
+- **Zustand** for global state management
 - **TanStack Query & Table**
 - **Next-Themes** for dark/light mode
+- **Recharts** for analytics visualization
 
-### **Security and fetch**
+### **Security and Data Fetching**
 
 - **NextAuth.js** for authentication
-- **Axios** for API communication
+- **Axios** for API requests
 - **bcrypt / bcryptjs** for password hashing
+- **JWT Decode** for token parsing and verification
 
-### **Database**
+### **Database / API**
 
-- Compatible with **PostgreSQL**, **MySQL**, **MongoDB**, or other API-based data sources  
-  (via custom backend or API integration).
+- Fully compatible with **PostgreSQL**, **MySQL**, **MongoDB**, or any **REST/GraphQL API**
+  through custom backend or API integration.
 
 ---
 
@@ -38,22 +48,23 @@ With a focus on performance, scalability, and clean architecture, this dashboard
 
 ```bash
 # 1️⃣ Clone the repository
-git clone https://github.com/jamesnguyendev/wandora-frontend-admin.git
-cd wandora-frontend-admin
+git clone https://github.com/jamesnguyendev/wandora.git
+cd wandora
 
 # 2️⃣ Install dependencies
 npm install
 
 # 3️⃣ Set up environment variables
-cp .env
+cp .env.example .env
 ```
 
 Then edit your `.env` file:
 
 ```bash
-NEXTAUTH_SECRET=your-secret-key
-NEXTAUTH_URL=http://localhost:3000
-NEXT_PUBLIC_API_URL=http://localhost:8000/api
+NEXTAUTH_SECRET=
+NEXTAUTH_URL=
+NEXT_PUBLIC_API_URL=
+SENTRY_AUTH_TOKEN=
 ```
 
 ---
@@ -61,22 +72,22 @@ NEXT_PUBLIC_API_URL=http://localhost:8000/api
 ## 🧱 Project Structure
 
 ```
-wandora-frontend-admin/
+wandora/
 │
 ├── src/
 │   ├── app/            # Next.js app router pages
 │   ├── components/     # Shared React UI components
 │   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utility functions and constants
-│   ├── store/          # Zustand stores (global state)
+│   ├── lib/            # Utilities and constants
+│   ├── store/          # Zustand global state stores
 │   ├── types/          # TypeScript interfaces and models
-│   ├── utils/          # Helper functions (token, format, etc.)
-│   └── scripts/        # Node scripts (theme generation, etc.)
+│   ├── utils/          # Helper functions (auth, format, etc.)
+│   └── scripts/        # Node scripts (theme presets, etc.)
 │
 ├── public/             # Static assets (images, icons, etc.)
-├── styles/             # Global styles or Tailwind configs
-├── .env.example        # Example environment configuration
-├── package.json        # Dependencies and project scripts
+├── styles/             # Tailwind styles and global CSS
+├── .env.example        # Example environment file
+├── package.json        # Dependencies and scripts
 ├── tsconfig.json       # TypeScript configuration
 ├── tailwind.config.ts  # Tailwind configuration
 └── README.md           # Documentation
@@ -86,30 +97,35 @@ wandora-frontend-admin/
 
 ## 🔐 Security
 
-Passwords are hashed using **bcrypt** before storage.  
-Authentication is handled securely with **NextAuth.js**.  
-Environment variables are safely managed through **.env.local**.  
-Adheres to **OWASP** and **Next.js** security best practices.  
-Linting includes **eslint-plugin-security** and **eslint-plugin-sonarjs** for static code analysis.
+- Passwords are securely hashed with **bcrypt**.
+- **NextAuth.js** provides token-based authentication and session handling.
+- Environment variables are managed via **.env**.
+- Follows **OWASP** and **Next.js** security best practices.
+- Linting enforces code quality using **eslint-plugin-security** and **eslint-plugin-sonarjs**.
 
 ---
 
 ## 📦 Deployment
 
-You can deploy easily to the following platforms:
+You can deploy Wandora easily on any modern hosting platform:
 
 - **Vercel** (recommended for Next.js)
 - **Netlify**
 - **Render**
-- **Any Node.js–based hosting platform**
+- **AWS / DigitalOcean / Node.js servers**
 
-⚙️ Make sure your environment variables are correctly configured  
-in your deployment environment.
+Ensure your environment variables are correctly configured in your deployment environment.
+
+---
+
+## 👨‍💻 Author
+
+**James Nguyen**
+[GitHub: jamesnguyendev](https://github.com/jamesnguyendev)
 
 ---
 
 ## 📜 License
 
-MIT License © 2025 **James Nguyen / Org**  
-**Project:** wandora-frontend-admin
-# wandora
+MIT License © 2025 **James Nguyen**
+**Project:** wandora
