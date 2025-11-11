@@ -1,4 +1,4 @@
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 
 interface LoginResponse {
   token: string;
@@ -24,9 +24,9 @@ export async function login(email: string, password: string): Promise<LoginRespo
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      const err = error as AxiosError<{ message?: string }>;
-      const message = err.response?.data?.message || "Invalid email or password";
-      throw new Error(message);
+      // const err = error as AxiosError<{ message?: string }>;
+      // const message = err.response?.data?.message || "Invalid email or password";
+      throw new Error("Invalid email or password");
     }
 
     throw new Error("Something went wrong during login");

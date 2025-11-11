@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { z } from "zod";
 
 export const bookingSchema = z

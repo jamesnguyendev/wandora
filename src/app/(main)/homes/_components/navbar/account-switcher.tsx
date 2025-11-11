@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { LogIn, LogOut } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 
@@ -14,7 +16,6 @@ import {
 import { cn, getInitials } from "@/lib/utils";
 
 import { ThemeSwitcher } from "./theme-switcher";
-import Link from "next/link";
 
 export function AccountSwitcher() {
   const { data: session } = useSession();

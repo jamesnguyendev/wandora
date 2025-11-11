@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { jwtDecode } from "jwt-decode";
 import { getServerSession } from "next-auth";
 

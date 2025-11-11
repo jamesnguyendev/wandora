@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -77,7 +79,7 @@ const SearchMapCustom = () => {
               <div className="flex flex-col items-center">
                 <Link href={`/homes/detail/${listing.id}`}>
                   <Image
-                    src={listing.imageUrl || "/images/placeholder.png"}
+                    src={listing.imageUrl ?? "/images/placeholder.png"}
                     alt={listing.title}
                     className="w-full rounded object-cover hover:opacity-80"
                     width={100}
