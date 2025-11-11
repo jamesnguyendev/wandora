@@ -4,8 +4,6 @@ import { ResponseBooking, booking } from "@/types/booking";
 import TourInfo from "../detail/tour-info";
 
 const ListBookings = ({ data }: { data: ResponseBooking }) => {
-  console.log(data);
-
   return (
     <div className="my-10 grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">
       {data.data.map((item: booking) => (
