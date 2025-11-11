@@ -15,6 +15,8 @@ const page = async () => {
 
   const data = await getBookingsByUser();
 
+  if (!data) return <p>No data.</p>;
+
   return <ListBookings data={data} />;
 };
 
