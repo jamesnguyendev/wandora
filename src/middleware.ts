@@ -10,11 +10,14 @@ export async function middleware(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
 
-  if (!token && pathname.startsWith("/homes")) {
+  const isProtectedRoute = pathname.startsWith("/homes/booking/me");
+  const isAuthRoute = pathname.startsWith("/auth/login") || pathname.startsWith("/auth/register");
+
+  if (!token && isProtectedRoute) {
     return NextResponse.redirect(new URL("/auth/login", req.url));
   }
 
-  if (token && pathname.startsWith("/auth/login")) {
+  if (token && isAuthRoute) {
     return NextResponse.redirect(new URL("/homes", req.url));
   }
 

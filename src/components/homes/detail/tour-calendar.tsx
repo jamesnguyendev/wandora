@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
 import { useSession } from "next-auth/react";
@@ -24,6 +26,7 @@ type BookingForm = z.infer<typeof bookingSchema>;
 const TourCalendar = ({ data }: { data: Tour }) => {
   const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const form = useForm<BookingForm>({
     resolver: zodResolver(bookingSchema),
@@ -39,6 +42,8 @@ const TourCalendar = ({ data }: { data: Tour }) => {
   const isDisplayPrice = checkIn && checkOut ? data.priceBase : 0;
 
   const onSubmit = async (values: BookingForm) => {
+    if (!session?.user) return router.push("/auth/login");
+
     const payload = {
       userId: session?.user.id,
       listingId: data.id,
