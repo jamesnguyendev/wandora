@@ -8,8 +8,9 @@ interface PageProps {
 }
 
 export default async function Page({ searchParams }: PageProps) {
-  const search = await searchParams;
-  const query = search.q;
+  const { q } = await searchParams;
+
+  const query = q;
 
   if (!query) return <p>No result</p>;
 

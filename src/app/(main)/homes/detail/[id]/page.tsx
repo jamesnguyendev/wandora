@@ -3,12 +3,11 @@ import TourCalendar from "@/components/homes/detail/tour-calendar";
 import { Tour } from "@/types";
 
 interface PageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function page({ params }: PageProps) {
-  const paramsId = await params;
-  const id = paramsId.id;
+  const { id } = await params;
 
   const Tour = await getTour(id);
 
